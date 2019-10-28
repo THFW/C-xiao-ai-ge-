@@ -1,23 +1,31 @@
 #include<stdio.h>
-#define N 100
-void  change(int a[N],int n,int m)
-{	int i;
-	for(i=n-1;i>=0;i--)
-		a[i+m]=a[i];
-	for(i=0;i<m;i++)
-		a[i]=a[n+i];
-	for(i=0;i<n;i++)
-		printf("%d ",a[i]);	
-} 
+int maxnumber(int a,int b);
+void minnumber(int a,int b,int c);
 int main()
 {
-    int a[N],n,m,i;
-	scanf("%d",&n);
-	for(i=0;i<n;i++)
+    int a,b,m;
+	scanf("%d %d",&a,&b);
+    m=maxnumber(a,b);
+	minnumber(a,b,m);
+    return 0;
+}
+
+int maxnumber(int a,int b)
+{
+	int c;
+	while(b)
 	{
-		scanf("%d",&a[i]);
+		c=a%b;
+		a=b;
+		b=c;
 	}
-	scanf("%d",&m);
-	change(a,n,m);
-       return 0;
+	printf("%d ",a);
+	return a;
+}
+
+void minnumber(int a,int b,int c)
+{
+		int n;
+		n=(a*b)/c;
+		printf("%d",n);
 }
