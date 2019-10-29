@@ -2,35 +2,26 @@
 #define N 100
 int main()
 {
-    int b=0,c=0,d=0,e=0,i;
+    int i=0,n=0;
 	char a[N];
-	//scanf("%s",a);
-	gets(a);
+    gets(a);
 	for(i=0;i<N;i++)
 	{
 		if(a[i]=='\0')
-		{break;}
-		else
 		{
-			if((a[i]>='a'&&a[i]<='z')||(a[i]>='A'&&a[i]<='Z'))
-			{
-				b++;
-			}
-			else if(a[i]>='1'&&a[i]<='9')
-			{
-				c++;
-			}
-			else if(a[i]==' ')
-			{
-				d++;
-			}
-			else
-			{
-				e++;
-			}
+			n=i;
+			break;
 		}
+		
 	}
-	printf("%d %d %d %d",b,c,d,e);
+	
+	for(i=n-1;i>=0;i--)
+	{
+		if(a[i]==' ')
+			continue;
+		else
+		printf("%c",a[i]);
+	}
 
     return 0;
 }
